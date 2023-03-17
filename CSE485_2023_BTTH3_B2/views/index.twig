@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        {% block head %}
+            <title>{% block title %}{% endblock %} bt2</title>
+        {% endblock %}
+    </head>
+    
+    <body>
+        {% block content %}
+        <td><a href="./index.php?action=add">Add</a></td>
+        <table border="1" style="width:80%">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>User</td>
+                    <td>Email</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td><a href="./index.php?action=edit&id={{user.id}}">edit</a></td>
+                    <td><a href="./index.php?action=delete&id={{user.id}}">delete</a></a></td>       
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+    </body>
+</html>
